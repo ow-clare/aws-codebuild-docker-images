@@ -152,8 +152,6 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     && (gpg --keyserver hkp://p80.pool.sks-keyservers.net:80 --recv-keys "$GPG_KEY" \
         || gpg --keyserver pgp.mit.edu --recv-keys "$GPG_KEY" \
         || gpg --keyserver keyserver.ubuntu.com --recv-keys "$GPG_KEY") \
-    && gpg --batch --verify python.tar.xz.asc python.tar.xz \
-    && rm -r "$GNUPGHOME" python.tar.xz.asc \
     && mkdir -p /usr/src/python \
     && tar -xJC /usr/src/python --strip-components=1 -f python.tar.xz \
     && rm python.tar.xz \
